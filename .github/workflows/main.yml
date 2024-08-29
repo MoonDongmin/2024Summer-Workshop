@@ -54,12 +54,12 @@ jobs:
           bun-version: latest
 
       - name: Node.js 셋업
-        uses: actions/checkout@v3
+        uses: actions/setup-node@v3
         with:
           node-version: '20.16.0'
 
       - name: SSH 셋업
-        uses: webfactory/ssh-agent@v0.7.0
+        uses: webFactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{secrets.SSH_PRIVATE_KEY}}
 
