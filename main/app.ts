@@ -4,7 +4,7 @@ const server = Bun.serve({
     const path = new URL(req.url).pathname;
 
     if (path === "/") {
-      return new Response("Welcome to Bun!");
+      return new Response("Welcome to Donmgin!");
     }
 
     return new Response("Not found", { status: 404 });
