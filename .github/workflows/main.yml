@@ -16,8 +16,28 @@ jobs:
   # package.json을 필수로 넣어야 함.
   setup:
     runs-on: ubuntu-latest
+    needs: init
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
-      - run: bun install
 
+      - name: Bun 패키지 설치
+        run: bun install
+
+
+  test:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bun 셋업
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Bun 패키지 설치
+        run: bun install
+
+      - name: 테스트 수행
+        run: bun test
